@@ -47,8 +47,8 @@
             <li>
                 <strong>Files and folders the app itself creates in that Google Drive</strong>, through Google's
                 <code>drive.file</code> permission: a "Diampro Exports" folder, a sub-folder in it for each list (such as
-                GLX or Payments), and the CSV export files placed in them. The app cannot see, open or change any other
-                files in the Drive.
+                GLX or Payments) and for database backups, and the CSV export and backup files placed in them. The app
+                cannot see, open or change any other files in the Drive.
             </li>
         </ul>
 
@@ -56,7 +56,8 @@
         <ul>
             <li>It creates the "Diampro Exports" folder when Drive is connected, and a sub-folder for a list the first time that list is exported.</li>
             <li>It uploads an export file to the list's sub-folder each time a user of the business asks for an export.</li>
-            <li>It keeps the newest exports of each list and moves older ones it created to the Google Drive trash.</li>
+            <li>Once a day, the business's own server uploads a compressed backup of the business's database to the "Backups" sub-folder.</li>
+            <li>It keeps the newest exports of each list and the newest backups, and moves older ones it created to the Google Drive trash.</li>
             <li>It shows the connected account's email address and a link to the folder in the app.</li>
         </ul>
         <p>Google user data is not used for any other purpose.</p>
@@ -65,9 +66,9 @@
         <p>
             When Drive is connected, Google issues tokens that let the app upload on the business's behalf. The
             long-lived token is stored encrypted on the business's own server; short-lived access tokens are kept there
-            for up to an hour. They are used only to upload that business's exports. Export files are created on the
-            business's server, uploaded to Google Drive, and then deleted from the server. Connections to Google use
-            HTTPS.
+            for up to an hour. They are used only to upload that business's exports and backups. Export and backup
+            files are created on the business's server, uploaded to Google Drive, and then deleted from the server (a
+            backup stays on the server only while Google Drive cannot be reached). Connections to Google use HTTPS.
         </p>
 
         <h2>Sharing</h2>
