@@ -46,15 +46,17 @@
             </li>
             <li>
                 <strong>Files and folders the app itself creates in that Google Drive</strong>, through Google's
-                <code>drive.file</code> permission: a "Diampro Exports" folder and the CSV export files placed in it.
-                The app cannot see, open or change any other files in the Drive.
+                <code>drive.file</code> permission: a "Diampro Exports" folder, a sub-folder in it for each list (such as
+                GLX or Payments), and the CSV export files placed in them. The app cannot see, open or change any other
+                files in the Drive.
             </li>
         </ul>
 
         <h2>How the app uses Google user data</h2>
         <ul>
-            <li>It creates the "Diampro Exports" folder when Drive is connected.</li>
-            <li>It uploads an export file to that folder each time a user of the business asks for an export.</li>
+            <li>It creates the "Diampro Exports" folder when Drive is connected, and a sub-folder for a list the first time that list is exported.</li>
+            <li>It uploads an export file to the list's sub-folder each time a user of the business asks for an export.</li>
+            <li>It keeps the newest exports of each list and moves older ones it created to the Google Drive trash.</li>
             <li>It shows the connected account's email address and a link to the folder in the app.</li>
         </ul>
         <p>Google user data is not used for any other purpose.</p>
